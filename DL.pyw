@@ -27,13 +27,15 @@ def update_lists():
     iwadListBox.delete(0,tk.END)
     modsListBox.delete(0,tk.END)
 
-    for f in os.scandir(en2.get()):
-        if f.is_file():
-            iwadListBox.insert(tk.END, f.name)
+    if os.path.isdir(en2.get()):
+        for f in os.scandir(en2.get()):
+            if f.is_file():
+                iwadListBox.insert(tk.END, f.name)
     
-    for f in os.scandir(en3.get()):
-        if f.is_file():
-            modsListBox.insert(tk.END, f.name)
+    if os.path.isdir(en3.get()):
+        for f in os.scandir(en3.get()):
+            if f.is_file():
+                modsListBox.insert(tk.END, f.name)
 
 
 def bt1_click():
